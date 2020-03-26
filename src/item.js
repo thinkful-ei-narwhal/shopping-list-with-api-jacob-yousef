@@ -14,7 +14,12 @@ function create(name) {
   }
 }
 
+fetch('https://thinkful-list-api.herokuapp.com/ei-student/items')
+  .then(res => res.json())
+  .then(data => console.log(data));
+
+
 export default {
   validateName,
-  create
+  create,
 }
