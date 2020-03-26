@@ -5,7 +5,7 @@ function findById(id) {
   return this.items.find(item => item.id === id);
 }
 
-const findAndUpdate = function (id, newData) {
+function findAndUpdate(id, newData) {
   const item = this.findById(id)
   Object.assign(item, newData)
 }
