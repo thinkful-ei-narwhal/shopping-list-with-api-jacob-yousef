@@ -7,13 +7,18 @@ function findById(id) {
   return this.items.find(item => item.id === id);
 }
 
-function addItem(itemName) {
-  try {
-    item.validateName(itemName);
-    this.items.push(item.create(itemName));
-  } catch (error) {
-    console.log(`Cannot add item: ${error.message}`);
-  }
+function addItem(item) {
+  // try {
+  //   item.validateName(itemName);
+  //   this.items.push(item.create(itemName));
+  // } catch (error) {
+  //   console.log(`Cannot add item: ${error.message}`);
+  // }
+
+   this.items.push(item);
+
+
+
 }
 
 function findAndToggleChecked(id) {
