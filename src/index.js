@@ -8,10 +8,21 @@ import item from "./item";
 import "./index.css";
 
 const main = function() {
-  api.getItems()
-   .then(res => console.log(res));
+  api.createItem('pears')
+  .then(res => res.json())
+  .then((newItem) => {
+    return api.getItems();
+  })
+  .then(res => res.json())
+  .then((items) => {
+    console.log(items);
+  });
+  // api.getItems()
+  //  .then(res => res.json())
+  //  .then(res => console.log(res));
   shoppingList.bindEventListeners();
   shoppingList.render();
 };
+
 
 $(main);
