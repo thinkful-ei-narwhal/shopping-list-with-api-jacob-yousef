@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import store from "./store";
-import item from "./item";
+import api from "./api"
 
 const generateItemElement = function(item) {
   let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
@@ -58,6 +58,14 @@ const handleNewItemSubmit = function() {
     const newItemName = $(".js-shopping-list-entry").val();
     $(".js-shopping-list-entry").val("");
     addItemToShoppingList(newItemName);
+
+    api.createItem(newItemName)
+  .then(res => res.json())
+  .then((newItem) => {
+    store.addItem(newItem);
+    render();
+  });
+
     render();
   });
 };
