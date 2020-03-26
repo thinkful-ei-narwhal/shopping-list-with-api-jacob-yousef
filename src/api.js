@@ -29,7 +29,15 @@ const updateItem = function (id, updateData) {
     });
   };
 
+const deleteItem = function (id) {
+    return fetch(`${BASE_URL}/items/${id}`,{
+        method: 'DELETE'
+    })
+}
+
+
 export default {
+    deleteItem,
     createItem,
     getItems,
     updateItem
